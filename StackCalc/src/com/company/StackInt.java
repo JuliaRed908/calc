@@ -12,3 +12,4 @@ public class StackInt {
     public final int pop() { return array[--head]; }
     public final int top() { return array[head-1]; }
 }
+

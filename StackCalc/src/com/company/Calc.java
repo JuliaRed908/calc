@@ -2,14 +2,15 @@ package com.company;
 
 public class Calc extends Compf{
     private StackInt s;
+    
     private static int char2int(char c) {
         return (int)c - (int)'0';
     }
     protected int symOther(char c) {
-        if (c < '0' || c > '9') {
+        /*if (c < '0' || c > '9') {
             System.out.println("Недопустимый символ: " + c);
             System.exit(0);
-        }
+        }*/
         return SYM_OTHER;
     }
     protected void nextOper(char c) {
@@ -29,25 +30,29 @@ public class Calc extends Compf{
                 }
                 s.push(sq); break;
             case '+':
-                        s.push(first + second); break;
+                s.push(first + second); break;
             case '-':
-                        s.push(first - second); break;
+                s.push(first - second); break;
             case '*':
-                        s.push(first * second); break;
+                s.push(first * second); break;
             case '/':
-                        s.push(first / second); break;
+                s.push(first / second); break;
 //            default:
 //                s.push(10*first + second);
 //                break;
+
         }
     }
     protected void nextOther(char c) {
+        String digits = "0123456789ABCDEF";
+        int d = digits.indexOf(c);
         if(num > 1){
             int a = s.top();
+
             s.pop();
-            s.push(10*a +char2int(c));
+            s.push(16 * a + d);
         }
-         else s.push(char2int(c));
+        else s.push(d);
     }
     public Calc() {
         s = new StackInt();

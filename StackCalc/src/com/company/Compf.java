@@ -14,13 +14,13 @@ public class Compf extends Stack{
         switch (c) {
             case '(':
                 num = 0;
-            return SYM_LEFT;
+                return SYM_LEFT;
             case ')':
                 num = 0;
-            return SYM_RIGHT;
+                return SYM_RIGHT;
             case '+': case '-': case '*': case '/': case '^':
                 num = 0;
-            return SYM_OPER;
+                return SYM_OPER;
             default:
                 num++;
                 return symOther(c);
@@ -47,6 +47,7 @@ public class Compf extends Stack{
         if (c == '+' || c == '-')res = 1;
         else if (c == '*' || c == '/')res = 2;
         else if (c == '^')res = 3;
+
         //return c == '+' || c == '-' ? 1 : 2;
         return res;
     }

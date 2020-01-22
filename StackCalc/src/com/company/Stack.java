@@ -14,3 +14,4 @@ public class Stack {
     }
     public final char top() { return array[head-1]; }
 }
+
