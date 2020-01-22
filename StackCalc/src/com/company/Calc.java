@@ -16,26 +16,38 @@ public class Calc extends Compf{
         int second = s.pop();
         int first = s.pop();
         switch (c) {
-case '+':
-            s.push(first + second); break;
-case '-':
-            s.push(first - second); break;
-case '*':
-            s.push(first * second); break;
-case '/':
-            s.push(first / second); break;
+            case '^':
+                int sq=first;
+                if(second > 0){
+                    for (int i = 1; i < second; i++)
+                    {
+                        sq*=first;
+                    }
+                }
+                else if(second == 0){
+                    sq = 1;
+                }
+                s.push(sq); break;
+            case '+':
+                        s.push(first + second); break;
+            case '-':
+                        s.push(first - second); break;
+            case '*':
+                        s.push(first * second); break;
+            case '/':
+                        s.push(first / second); break;
+//            default:
+//                s.push(10*first + second);
+//                break;
         }
     }
     protected void nextOther(char c) {
-       /* if(n>1){
-            t=s.top();
+        if(num > 1){
+            int a = s.top();
             s.pop();
-            s.push(t*10+char2int(c));
-
+            s.push(10*a +char2int(c));
         }
-        else{s.push(char2int(c));}*/
-        s.push(char2int(c));
-
+         else s.push(char2int(c));
     }
     public Calc() {
         s = new StackInt();
